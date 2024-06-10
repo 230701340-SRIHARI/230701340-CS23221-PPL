@@ -1,0 +1,333 @@
+WEEK-6
+
+
+1.Given an array of numbers, find the index of the smallest array element (the pivot), for which the sums of all elements to the left and to the right are equal. The array may not be reordered.
+
+Example
+
+arr=[1,2,3,4,6]
+
+·         the sum of the first three elements, 1+2+3=6. The value of the last element is 6.
+
+·         Using zero based indexing, arr[3]=4 is the pivot between the two subarrays.
+
+·         The index of the pivot is 3.
+
+Constraints
+
+·         3 ≤ n ≤ 105
+
+·         1 ≤ arr[i] ≤ 2 × 104, where 0 ≤ i < n
+
+·         It is guaranteed that a solution always exists.
+
+The first line contains an integer n, the size of the array arr.
+
+Each of the next n lines contains an integer, arr[i], where 0 ≤ i < n.
+
+
+
+
+n = int(input())
+arr = [int(input()) for _ in range(n)]
+
+for i in range(n):
+    left_sum = sum(arr[:i])
+    right_sum = sum(arr[i+1:])
+    if left_sum == right_sum:
+        print(i)
+        break
+
+
+
+2.Determine the factors of a number (i.e., all positive integer values that evenly divide into a number) and then return the pth element of the list, sorted ascending. If there is no pth element, return 0.
+
+Example
+
+n = 20
+
+p = 3
+
+The factors of 20 in ascending order are {1, 2, 4, 5, 10, 20}. Using 1-based indexing, if p = 3, then 4 is returned. If p > 6, 0 would be returned.
+
+Constraints
+
+1 ≤ n ≤ 1015
+
+1 ≤ p ≤ 109
+
+The first line contains an integer n, the number to factor.
+
+The second line contains an integer p, the 1-based index of the factor to return.
+
+
+
+n=int(input())
+p=int(input())
+c=0
+l=[]
+for i in range(1,n+1):
+    if(n%i==0):
+        l.append(i)
+        c+=1
+if(c>=p):
+    print(l[p-1])
+else:
+    print(0)
+   
+
+
+3.Output is a merged array without duplicates.
+
+Input Format
+
+N1 - no of elements in array 1
+
+Array elements for array 1
+
+N2 - no of elements in array 2
+
+Array elements for array2
+
+Output Format
+
+Display the merged array
+
+
+
+
+n=int(input())
+l=[]
+for i in range(n):
+    l.append(int(input()))
+n1=int(input())
+l1=[]
+for i in range(n1):
+    l1.append(int(input()))
+l2=l+l1
+l2.sort()
+l3=[]
+for i in l2:
+    if(i not in l3):
+        l3.append(i)
+for i in l3:
+    print(i,end=" ")
+
+
+
+
+4.Consider a program to insert an element / item in the sorted array. Complete the logic by filling up required code in editable section. Consider an array of size 10. The eleventh item is the data is to be inserted.
+
+
+l=[]
+for i in  range(10):
+    l.append(int(input()))
+k=int(input())
+l1=[]
+c=0
+for i in range(10):
+    if(l[i]<k):
+        l1.append(l[i])
+        c+=1
+    else:
+        break
+l1.append(k)
+for i in range(c,10):
+    l1.append(l[i])
+
+print("ITEM to be inserted:{:d}".format(k))
+print("After insertion array is:")
+for i in range(11):
+    print(l1[i]) 
+
+
+5.Given two lists A and B, and B is an anagram of A. B is an anagram of A means B is made by randomizing the order of the elements in A.
+
+We want to find an index mapping P, from A to B. A mapping P[i] = j means the ith element in A appears in B at index j.
+
+These lists A and B may contain duplicates. If there are multiple answers, output any of them.
+
+
+
+
+n=int(input())
+a=input().split()
+b=input().split()
+
+c=[]
+for i in range(n):
+    for j in range(n):
+        if(a[i]==b[j]):
+            c.append(j)
+for i in range(n):
+    print(c[i],end=" ")
+
+
+
+
+6.Write a Python program to Zip two given lists of lists.
+
+Input:
+
+m : row size
+
+n: column size
+
+list1 and list 2 :  Two lists
+
+Output
+
+Zipped List : List which combined both list1 and list2
+
+
+
+
+m=int(input())
+n=int(input())
+l=[]
+l1=[]
+for i in range(m*n):
+    l.append(int(input()))
+for j in range(m*n):
+    l1.append(int(input()))
+a=n
+for i in range(1,n+1):
+
+    l[-n],l1[i-1]=l1[i-1],l[-n]
+    n-=1
+l2=[l,l1]
+print(l2)
+
+
+7.Find the intersection of two sorted arrays.
+
+OR in other words,
+
+Given 2 sorted arrays, find all the elements which occur in both the arrays.
+
+Input Format
+
+The first line contains T, the number of test cases. Following T lines contain:
+
+1.      Line 1 contains N1, followed by N1 integers of the first array
+
+2.      Line 2 contains N2, followed by N2 integers of the second array
+
+Output Format
+
+The intersection of the arrays in a single line
+
+
+
+
+t=int(input())
+while(t>0):
+    n=int(input())
+    l=[]
+    for i in range(n):
+        l.append(int(input()))
+    n1=int(input())
+    l1=[]
+    for i in range(n1):
+        l1.append(int(input()))
+    for i in l:
+        c=0
+        for j in l1:
+            if(i==j):
+                c+=1
+        if(c>0):
+            print(i,end=" ")
+   
+    t-=1
+
+
+
+
+8.Given an array A of sorted integers and another non negative integer k, find if there exists 2 indices i and j such that A[i] - A[j] = k, i != j.
+
+Input Format
+
+1.      First line is number of test cases T. Following T lines contain:
+
+2.      N, followed by N integers of the array
+
+3.      The non-negative integer k
+
+Output format
+
+Print 1 if such a pair exists and 0 if it doesn’t.
+
+
+
+t=int(input())
+while(t>0):
+    n=int(input())
+    l=[]
+    for i in range(n):
+        l.append(int(input()))
+    k=int(input())
+    c=0
+    for i in range(n-1):
+        for j in range(n):
+           if(abs(l[i]-l[j])==k and i!=j):
+               c+=1
+    if(c>0):
+        print(1)
+    else:
+        print(0)
+    t-=1
+
+
+
+9.Write a Python program to check if a given list is strictly increasing or not. Moreover, If removing only one element from the list results in a strictly increasing list, we still consider the list true
+
+Input:
+
+n : Number of elements
+
+List1: List of values
+Output
+
+Print "True" if list is strictly increasing or decreasing else print "False"
+
+Sample Test Case
+
+
+
+n=int(input())
+lst=[]
+flag=0
+for i in range(n):
+    y=int(input())
+    lst.append(y)
+if lst==sorted(lst) or lst==sorted(lst,reverse=True):
+    flag=1
+for i in range(n):
+    dup=lst.copy()
+    dup.pop(i)
+    if dup==sorted(dup) or dup==sorted(dup,reverse=True):
+        flag=1
+print(flag==1)
+
+
+
+10.Complete the program to count frequency of each element of an array. Frequency of a particular element will be printed once.
+
+
+n = int(input())
+arr = []
+for i in range(n):
+    arr.append(int(input()))
+freq = {}
+for num in arr:
+    if num in freq:
+        freq[num] += 1
+    else:
+        freq[num] = 1
+for key, value in freq.items():
+    print(f"{key} occurs {value} times")
+
+
+
+
+

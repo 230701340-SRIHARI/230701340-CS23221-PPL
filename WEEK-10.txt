@@ -1,0 +1,157 @@
+WEEK-10
+
+1.Given an list, find peak element in it. A peak element is an element that is greater than its neighbors.
+
+An element a[i] is a peak element if
+
+A[i-1] <= A[i] >=a[i+1] for middle elements. [0<i<n-1]
+
+A[i-1] <= A[i] for last element [i=n-1]
+
+A[i]>=A[i+1] for first element [i=0]
+
+Input Format
+
+The first line contains a single integer n , the length of A .
+The second line contains n space-separated integers,A[i].
+
+Output Format
+
+Print peak numbers separated by space.
+
+
+
+def findPeakElements(arr):
+    peaks = []
+    n = len(arr)
+    if arr[0] >= arr[1]:
+        peaks.append(arr[0])
+    for i in range(1, n - 1):
+        if arr[i - 1] <= arr[i] >= arr[i + 1]:
+            peaks.append(arr[i])
+    if arr[n - 1] >= arr[n - 2]:
+        peaks.append(arr[n - 1])
+    return peaks
+def main():
+    n = int(input().strip())
+    arr = list(map(int, input().strip().split()))
+    peaks = findPeakElements(arr)
+    print( " ".join(map(str, peaks)))
+main()
+
+
+
+2.def merge_sort(arr):
+    if len(arr) > 1:
+        mid = len(arr) // 2
+        left_half = arr[:mid]
+        right_half = arr[mid:]
+
+        merge_sort(left_half)
+        merge_sort(right_half)
+
+        i = j = k = 0
+
+        while i < len(left_half) and j < len(right_half):
+            if left_half[i] < right_half[j]:
+                arr[k] = left_half[i]
+                i += 1
+            else:
+                arr[k] = right_half[j]
+                j += 1
+            k += 1
+
+        while i < len(left_half):
+            arr[k] = left_half[i]
+            i += 1
+            k += 1
+
+        while j < len(right_half):
+            arr[k] = right_half[j]
+            j += 1
+            k += 1
+
+
+n = int(input())
+arr = []
+arr=[int(e) for e in input().split()]
+merge_sort(arr)
+
+for i in range(len(arr)):
+    print(arr[i], end=" ")
+
+
+
+
+3.An list contains N numbers and you want to determine whether two of the numbers sum to a given number K. For example, if the input is 8, 4, 1, 6 and K is 10, the answer is yes (4 and 6). A number may be used twice.
+
+
+def findPairWithSum(numbers, k):
+    seen = set()
+    for number in numbers:
+        if (k - number) in seen:
+            return "Yes"
+        seen.add(number)
+    return "No"
+def main():
+    n = int(input().strip())
+    numbers = list(map(int, input().strip().split()))
+    k = int(input().strip())
+    result = findPairWithSum(numbers, k)
+    print(result)
+main()
+
+
+
+
+4.Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order. You read an list of numbers. You need to arrange the elements in ascending order and print the result. The sorting should be done using bubble sort.
+
+
+def bubbleSort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+def main():
+    n = int(input().strip())
+    arr = list(map(int, input().strip().split()))
+    bubbleSort(arr)
+    print(" ".join(map(str, arr)))
+main()
+
+
+
+5.Given an listof integers, sort the array in ascending order using the Bubble Sort algorithm above. Once sorted, print the following three lines:
+
+1.      List is sorted in numSwaps swaps., where numSwaps is the number of swaps that took place.
+
+2.      First Element: firstElement, the  first element in the sorted list.
+
+3.      Last Element: lastElement, the last element in the sorted list.
+
+For example, given a worst-case but small array to sort: a=[6,4,1]. It took  3 swaps to sort the array. Output would be
+
+Array is sorted in 3 swaps.  
+First Element: 1  
+Last Element: 6   
+
+
+
+def bubbleSort(arr):
+    n = len(arr)
+    num_swaps = 0
+    for i in range (n):
+        for j in range(0, n - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                num_swaps += 1
+    print("List is sorted in", num_swaps, "swaps.")
+    print("First Element:", arr[0])
+    print("Last Element:", arr[-1])
+
+def main():
+    n = int(input().strip())
+    arr = list(map(int, input().strip().split()))
+    bubbleSort(arr)
+main()

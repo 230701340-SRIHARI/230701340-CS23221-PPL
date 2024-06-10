@@ -1,0 +1,176 @@
+WEEK-5
+
+
+1.Consider the below words as key words and check the given input is key word or not.
+
+keywords: {break, case, continue, default, defer, else, for, func, goto, if, map, range, return, struct, type, var}
+
+Input format:
+
+Take string as an input from stdin.
+
+Output format:
+
+Print the word is key word or not.
+
+
+
+s=input()
+if(s in ["break","case","continue","default","defer","else","for","func","goto","if","map","range","return","struct","type","var"]):
+    print(s,"is a keyword")
+else:
+    print(s,"is not a keyword")
+
+
+
+2.In this exercise, you will create a program that reads words from the user until the user enters a blank line. After the user enters a blank line your program should display each word entered by the user exactly once. The words should be displayed in the same order that they were first entered. For example, if the user enters:
+
+first
+
+second
+
+first
+
+third
+
+second
+
+then your program should display:
+
+first
+
+second
+
+third
+
+
+
+l=[]
+l1=[]
+while True:
+    w=input()
+    l.append(w)
+    if w in " ":
+        break
+for i in l:
+    if i not in l1:
+        l1.append(i)
+for j in l1:
+    print(j)
+
+
+
+3.Find if a String2 is substring of String1. If it is, return the index of the first occurrence. else return -1.
+
+
+s1=input()
+s2=input()
+ind=s1.find(s2)
+print(ind)
+
+
+4.Write a program to check if two strings are balanced. For example, strings s1 and s2 are balanced if all the characters in the s1 are present in s2. The character’s position doesn’t matter. If balanced display as "true" ,otherwise "false".
+
+
+a=input()
+b=input()
+if a in b:
+    print('True')
+else:
+    print('False')
+    
+
+5.Given two Strings s1 and s2, remove all the characters from s1 which is present in s2.
+
+
+s1=input()
+s2=input()
+s=""
+for i in s1:
+    if(i not in s2) :
+        s=s+i
+print(s)
+
+
+6.Reverse a string without affecting special characters
+ Given a string S, containing special characters and all the alphabets, reverse the string without affecting the positions of the special characters.
+
+
+def reverseStr(s):
+    chars = list(s) 
+    
+    left, right = 0, len(chars) - 1
+    
+    while left < right:
+        if chars[left].isalpha() and chars[right].isalpha(): chars[left], chars[right] = chars[right], chars[left]; left += 1; right -= 1;
+        else:
+            if not chars[left].isalpha(): left += 1
+            if not chars[right].isalpha(): right -= 1
+    
+    
+    reversedStr = ''.join(chars)
+    
+    return reversedStr
+
+print(reverseStr(input()))
+
+
+
+7. Write a python to read a sentence and print its longest word and its length
+
+
+s=input() 
+l=max(s.split(),key=len)
+print(l)
+print(len(l))
+
+ 
+8.Write a python program to count all letters, digits, and special symbols respectively from a given string
+
+
+s=input()
+cd=0
+cl=0
+cs=0
+for i in s:
+    if i in "0123456789":
+        cd=cd+1
+       
+    elif i in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" :
+        cl=cl+1
+       
+    else:
+        cs=cs+1
+print(cl)
+print(cd)
+print(cs)
+
+
+9.Given a string S, which contains several words, print the count C of the words whose length is atleast L. (You can include punctuation marks like comma, full stop also as part of the word length. Space alone must be ignored)
+
+
+s=input()
+c=int(input())
+co=0
+a=s.split(" ")
+for i in a :
+    if len(i)>=c:
+        co+=1
+print(co)
+
+
+10.Two string values S1, S2 are passed as the input. The program must print first N characters present in S1 which are also present in S2.
+
+
+s1=input()
+s2=input()
+n=int(input())
+s=""
+c=0
+for i in s1:
+    if(i in s2) and (i not in s) and (c!=n):
+        s=s+i
+        c=c+1
+print(s)
+
+

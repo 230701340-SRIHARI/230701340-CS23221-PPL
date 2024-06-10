@@ -1,0 +1,103 @@
+WEEK-11
+
+
+1.roblem Description:
+
+Write a Python script that asks the user to enter a number within a specified range (e.g., 1 to 100). Handle exceptions for invalid inputs and out-of-range numbers.
+
+Input Format:
+
+User inputs a number.
+
+Output Format:
+
+Confirm the input or print an error message if it's invalid or out of range.
+
+
+
+
+roblem Description:
+
+Write a Python script that asks the user to enter a number within a specified range (e.g., 1 to 100). Handle exceptions for invalid inputs and out-of-range numbers.
+
+Input Format:
+
+User inputs a number.
+
+Output Format:
+
+Confirm the input or print an error message if it's invalid or out of range.
+
+
+
+
+2.Develop a Python program that safely performs division between two numbers provided by the user. Handle exceptions like division by zero and non-numeric inputs.
+
+Input Format: Two lines of input, each containing a number.
+
+Output Format: Print the result of the division or an error message if an exception occurs.
+
+
+
+try:
+    x=float(input())
+    y=float(input())
+    if(y==0):
+         print("Error: Cannot divide or modulo by zero.")
+    else:
+        print(x/y)
+except ValueError:
+    print("Error: Non-numeric input provided.")
+
+
+
+
+3.Write a Python program that asks the user for their age and prints a message based on the age. Ensure that the program handles cases where the input is not a valid integer.
+
+Input Format: A single line input representing the user's age.
+
+Output Format: Print a message based on the age or an error if the input is invalid.
+
+
+
+try:
+    x=int(input())
+    if(x>=0):
+        print("You are",x,"years old.")
+    else:
+          print("Error: Please enter a valid age.")
+    
+except:
+    print("Error: Please enter a valid age.")
+
+
+
+
+4.Problem Description:
+
+Write a Python program that asks the user for their age and prints a message based on the age. Ensure that the program handles cases where the input is not a valid integer.
+
+
+
+Input Format:
+
+A single line input representing the user's age.
+
+
+
+Output Format:
+
+Print a message based on the age or an error if the input is invalid.
+
+
+
+try:
+    x=int(input())
+    if(x>=0):
+        print("You are",x,"years old.")
+    else:
+          print("Error: Please enter a valid age.")
+    
+except:
+    print("Error: Please enter a valid age.")
+
